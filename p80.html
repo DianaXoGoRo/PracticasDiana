@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body bgcolor='689494'>
+
+<h1>Preguntas</h1>
+
+<form id="si">
+    <ol>
+        <li>
+            <h3>¿Cuál es el elemento HTML utilizado para definir un párrafo?</h3>
+            <input type="radio" name="qu1" value="a"> a) &lt;paragraph&gt;<br>
+            <input type="radio" name="qu1" value="b"> b) &lt;p&gt;<br>
+            <input type="radio" name="qu1" value="c"> c) &lt;para&gt;<br>
+            <input type="radio" name="qu1" value="d"> d) &lt;par&gt;
+        </li>
+        <li>
+            <h3>¿Cuál es el atributo utilizado para agregar un hipervínculo en HTML?</h3>
+            <input type="radio" name="qu2" value="a"> a) href<br>
+            <input type="radio" name="qu2" value="b"> b) link<br>
+            <input type="radio" name="qu2" value="c"> c) src<br>
+            <input type="radio" name="qu2" value="d"> d) url
+        </li>
+        <li>
+            <h3>¿Cuál es el elemento HTML utilizado para definir la lista desordenada?</h3>
+            <input type="radio" name="qu3" value="a"> a) &lt;list&gt;<br>
+            <input type="radio" name="qu3" value="b"> b) &lt;ul&gt;<br>
+            <input type="radio" name="qu3" value="c"> c) &lt;ol&gt;<br>
+            <input type="radio" name="qu3" value="d"> d) &lt;li&gt;
+        </li>
+        <li>
+            <h3>¿Cuál es el elemento HTML utilizado para definir la lista ordenada?</h3>
+            <input type="radio" name="qu4" value="a"> a) &lt;list&gt;<br>
+            <input type="radio" name="qu4" value="b"> b) &lt;ul&gt;<br>
+            <input type="radio" name="qu4" value="c"> c) &lt;ol&gt;<br>
+            <input type="radio" name="qu4" value="d"> d) &lt;li&gt;
+        </li>
+        <li>
+            <h3>¿Cuál es el atributo utilizado para especificar una imagen en HTML?</h3>
+            <input type="radio" name="qu5" value="a"> a) src<br>
+            <input type="radio" name="qu5" value="b"> b) img<br>
+            <input type="radio" name="qu5" value="c"> c) href<br>
+            <input type="radio" name="qu5" value="d"> d) url
+        </li>
+    </ol>
+    <input type="button" value="Resultados" id="calcular">
+</form>
+
+<div id="resultado"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var calcular = document.getElementById("calcular");
+    calcular.addEventListener("click", function() {
+        var puntos = 0;
+        var respuestas = ["b", "a", "b", "c", "a"];
+        var form = document.getElementById("bot");
+        var inputs = form.querySelectorAll('input[type="radio"]:checked');
+
+        if(inputs.length < 5) {
+            alert("Por favor, responde todas las preguntas.");
+            return;
+        }
+
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].value === respuestas[i]) {
+                puntos++;
+            }
+        }
+
+        var resultado = document.getElementById("resultado");
+        resultado.innerHTML = "Obtuviste " + puntos + " de calificacion.";
+    });
+});
+</script>
+
+</body>
+</html>
